@@ -16,12 +16,12 @@ const Layout = () => {
             {/* <Sidebar /> */}
                 <Routes>
                     {/* <Route index element={<Sidebar />} /> */}
-                    {/* <Route path="/" element={<MusicPanel/>} /> */}
-                    {/* <Route path="/upload" element={<UploadMusic/>} /> */}
+                    <Route path="/" element={<MusicPanel/>} />
+                    <Route path="/upload" element={<UploadMusic/>} />
                     {/* <Route index element={<MusicPlayer />} /> */}
                 
                 </Routes>
-                <MusicPage/>
+                {/* <MusicPage/> */}
                 <MusicPlayer/>
             </BrowserRouter>
         </div>
