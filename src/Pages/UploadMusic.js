@@ -81,7 +81,7 @@ function UploadMusic() {
         <div className=" font-bold text-center text-4xl my-6 text-green-400">
           Lets Upload Your work
         </div>
-        <div className="flex flex-row">
+        <div className="flex flex-row px-3">
           <div className="flex flex-1 flex-col bg-[#121212] w-full">
             {inputFields.map((input) => (
               <>
@@ -137,7 +137,7 @@ function UploadMusic() {
                   <img
                     src={imageUrl}
                     alt=""
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-contain"
                   />
                 </div>
               ) : null}
