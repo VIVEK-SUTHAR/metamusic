@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect,useRef} from "react";
 import {
   ConnectDevice,
   Loop,
@@ -8,30 +8,36 @@ import {
   Play,
   PreviousSong,
   Queue,
+  Reward,
   Shuffle,
   Volume,
 } from "../Assets/Icons";
+import RewardPopup from "./RewardPopup";
+
 
 export default function MusicPlayer() {
-  const [song, setSong] = useState("https://bafybeie54botbitl5iivjuypbuzsv3mczdy4s53mn4vfxdrbe7ppg42i5i.ipfs.infura-ipfs.io/");
+  const [song, setSong] = useState(
+    "https://bafybeie54botbitl5iivjuypbuzsv3mczdy4s53mn4vfxdrbe7ppg42i5i.ipfs.infura-ipfs.io/"
+  );
   console.log(song);
   const [play, setPlay] = useState(false);
   const [currntTime, setCurrntTime] = useState(0);
   const [songLength, setSongLength] = useState(0);
+
   const changeValue = (e) => {
     setSongLength(parseInt(e.target.duration));
     setCurrntTime(parseInt(e.target.currentTime));
     // console.log(playValue);
   };
   return (
-    <div className="z-10 h-20 fixed align-middle flex bg-[#2a2a2a] mx-3 px-2 bottom-1 rounded-lg transition-all">
+    <div className="z-10 h-20 fixed align-middle flex bg-[#2a2a2a] my-2 mx-4 justify-center px-2 bottom-1 rounded-lg transition-all">
       <div className="flex items-center">
         <div className="w-[calc(24rem+4rem)] h-14 flex">
           <div className="w-14 h-14">
             <img
               src="https://i.scdn.co/image/ab67616d0000485160ec4df52c2d724bc53ffec5"
               alt=""
-            />
+            /> 
           </div>
           <div className="flex-col items-center px-3 box-border">
             <h3 className="w-fit  font-semibold leading-5 text-slate-100">
@@ -78,11 +84,12 @@ export default function MusicPlayer() {
             value={currntTime} max={songLength}
             className="w-[calc(24rem+7rem)]  border-none h-1 flex mt-3 mx-auto rounded-xl accent-white border-0" /> */}
         </div>
+
         <div className="w-[calc(24rem+4rem)] h-8 ">
           <div className="flex space-x-6 ml-52 items-center h-full">
-            <Lyrics />
-            <Queue />
-            <ConnectDevice />
+            {/* <Lyrics /> */}
+            {/* <Queue /> */}
+            {/* <ConnectDevice /> */}
             <Volume />
           </div>
         </div>

@@ -3,13 +3,18 @@ import { Previous } from "../Assets/Icons";
 import { Next } from "../Assets/Icons";
 import useStore from "../Store/store";
 import { PauseAtAlbum } from "../Assets/Icons";
+import RewardPopup from "./RewardPopup";
+import { Reward } from "../Assets/Icons";
+import { useState } from "react";
+import { RewardMedal } from "../Assets/Icons";
 
 export default function MusicPage() {
+    const [reward, setReward] = useState(false);
     const store = useStore();
   const currentAccount = store.currentAccount.slice(38);
   return (
     
-    <div className="container">
+    <div className="container relative">
       <div className="bg-[#2a2a2a]  h-16 w-full px-8 flex items-center justify-between">
         <div className="flex items-center justify-between h-full text-neutral-400 text-base font-medium">
           <ul className="flex">
@@ -42,6 +47,25 @@ export default function MusicPage() {
         <div className=" ml-8 bg-green-500 hover:scale-110 ease-in-out duration-150 w-14 h-14 min-w-max min-h-max rounded-full gap-y-5 flex items-center justify-center">
             <PauseAtAlbum/>
         </div>
+
+        <div className="px-12">
+          <div className="flex min-w-max items-center min-h-max bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 p-1 rounded-full" >
+            <button onClick= {() =>setReward(true)} className="min-w-max min-h-max items-center px-4 py-1 justify-between rounded-full flex font-extrabold bg-white">
+              <div> REWARD OWNER</div>
+              <div className="min-w-max">
+                <RewardMedal/>
+              </div>
+            </button>
+          </div>
+          <RewardPopup
+            show={reward}
+            onClickOutside={() => {
+              setReward(false);
+            }}
+          />
+        </div>
+
+
       </div>
 
       <div className="h-screen ">
@@ -50,10 +74,10 @@ export default function MusicPage() {
             <hr className="mx-8 mt-4 "/>    
         </div>
 
-        <div className="hover:bg-[#a7a7a7] bg-transparent ease-in-out duration-200 h-12 mt-4 mx-8 rounded-md flex items-center">
-            <ul className="list-decimal mx-8 font-medium text-lg text-white">
-                <li>
-                    <h1>Song Name</h1>
+        <div className="hover:bg-[#a7a7a7] font-Abeezee drop-shadow-lg ease-in-out duration-200 h-12 mt-4 mx-8 rounded-md flex items-center">
+            <ul className="list-decimal tracking-widest mx-8 font-medium text-lg text-white">
+                <li className="">
+                    <h1 className="">Song Name</h1>
                 </li>
             </ul>
         </div>
