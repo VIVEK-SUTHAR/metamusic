@@ -10,6 +10,7 @@ export default function Navbar() {
   const [allSongs, setAllsongs] = useState("");
   const store = useStore();
   const currentAccount = store.currentAccount.slice(38);
+  const setallmusic = store.setAllsong;
 
   useEffect(() => {
     getAllSongs().then((res) => {
@@ -22,7 +23,8 @@ export default function Navbar() {
     setQuery(e.target.value);
     for (let i = 0; i < allSongs.length; i++) {
       if (allSongs[i].songName.includes(query)) {
-        console.log(allSongs[i].songName);
+        // console.log(allSongs[i].songName);
+        setallmusic(allSongs[i])
       }      
     }
   };
