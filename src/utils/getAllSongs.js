@@ -10,9 +10,8 @@ export default async function getAllSongs() {
     const contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
 
     const songs = await contract.getAllSongs();
-
-    console.log(songs);
-
+    
+    return songs
   } catch (error) {
     console.log(error);
   }
