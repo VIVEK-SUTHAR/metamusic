@@ -9,6 +9,7 @@ module.exports = {
         Barlow: ["Barlow Condensed"],
         Dosis: ["Dosis"], 
         QuickSand: ["Quick Sand"],
+        Abeezee: ["ABeeZee"],
         Inter:["Inter"], // ! find out why this fontFamily still not register to the styles.css inside the public -o output folder.
       },
     },
