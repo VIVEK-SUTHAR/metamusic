@@ -4,18 +4,32 @@ import saveMetaData from "../utils/saveMetaData";
 import StoreToIPFS from "../utils/saveToIPFS";
 function UploadMusic() {
   const [audioFile, setAudioFile] = useState(null);
+  const [ImageFile, setImageFile] = useState(null);
+  const [imageUrl, setImageurl] = useState(null);
+
   const handleFileChange = async (e) => {
     e.preventDefault();
     if (e.target.files[0]) {
       setAudioFile(e.target.files[0]);
     }
   };
+
+  const handleImageChange = async (e) => {
+    e.preventDefault();
+    if (e.target.files[0]) {
+      setImageFile(e.target.files[0]);
+      setImageurl(URL.createObjectURL(e.target.files[0]));
+      console.log(imageUrl);
+    }
+  };
+
   const [songData, setSongData] = useState({
     songName: "",
     singer: "",
     albumName: "",
     license: "",
   });
+
   const handleSongdata = (e) => {
     setSongData((songData) => ({
       ...songData,
@@ -33,6 +47,7 @@ function UploadMusic() {
     );
     console.log(metadata);
   };
+
   const inputFields = [
     {
       label: "Song Name",
@@ -94,34 +109,38 @@ function UploadMusic() {
             </button>
           </div>
           <div className="flex flex-1 flex-col items-center  justify-start  bg-[#121212]  ">
-            <div className="flex w-full my-4 px-4">
+            <div className="flex flex-col w-full my-4 px-4">
               <form className="flex flex-col items-center w-full">
                 <div className="flex justify-evenly w-full items-center">
-                  <h6 className="w-72 text-md font-bold text-white">Upload your Music</h6>
+                  <h6 className="w-72 text-md font-bold text-white">
+                    Upload your Music
+                  </h6>
                   <input
                     type="file"
                     className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100 my-4"
+                    onChange={handleFileChange}
                   />
                 </div>
                 <div className="flex justify-evenly w-full items-center">
-                  <h6 className="w-72 text-md font-bold text-white">Upload your Music Photo</h6>
+                  <h6 className="w-72 text-md font-bold text-white">
+                    Upload your Music Photo
+                  </h6>
                   <input
                     type="file"
                     className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100 my-6"
+                    onChange={handleImageChange}
                   />
                 </div>
               </form>
-            </div>
-            <div className="border-4 border-dashed border-green-400 my-24 text-green-400 p-8 h-72 flex flex-col justify-center items-center rounded-md">
-              <h6 className="text-2xl">
-                Upload Your Music in .mp3,.wav or any format
-              </h6>
-              <input
-                type="file"
-                className=" file:bg-green-400 file:outline-none file:border-0 file:max-w-max file:rounded-md my-9 rounded-md cursor-pointer"
-                onChange={handleFileChange}
-                //   accept=".mp3 .wav"
-              />
+              {imageUrl ? (
+                <div className="h-64 w-full">
+                  <img
+                    src={imageUrl}
+                    alt=""
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              ) : null}
             </div>
           </div>
         </div>

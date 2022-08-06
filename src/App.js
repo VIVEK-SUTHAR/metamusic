@@ -1,6 +1,8 @@
 import Layout from "./Pages/Layout";
+import LoginPage from "./Pages/LoginPage";
+
 function App() {
-  return <Layout />;
+  return <LoginPage/>;
 }
 
 export default App;
