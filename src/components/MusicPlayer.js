@@ -1,4 +1,5 @@
 import { useState,useEffect,useRef} from "react";
+import useStore from "../Store/store";
 import {
   ConnectDevice,
   Loop,
@@ -13,13 +14,20 @@ import {
   Volume,
 } from "../Assets/Icons";
 import RewardPopup from "./RewardPopup";
+import { useParams } from "react-router-dom";
 
 
-export default function MusicPlayer() {
+export default function MusicPlayer({id}) {
+  const state = useStore();
+  const allSong = state.allsong;
+  console.log(allSong)
+  // const {id} = useParams();
   const [song, setSong] = useState(
     "https://bafybeie54botbitl5iivjuypbuzsv3mczdy4s53mn4vfxdrbe7ppg42i5i.ipfs.infura-ipfs.io/"
   );
-  console.log(song);
+  // id?(num=id):num=song
+  
+  // console.log(song);
   const [play, setPlay] = useState(false);
   const [currntTime, setCurrntTime] = useState(0);
   const [songLength, setSongLength] = useState(0);
@@ -35,13 +43,13 @@ export default function MusicPlayer() {
         <div className="w-[calc(24rem+4rem)] h-14 flex">
           <div className="w-14 h-14">
             <img
-              src="https://i.scdn.co/image/ab67616d0000485160ec4df52c2d724bc53ffec5"
+              src={allSong[id].bannerImage}
               alt=""
             /> 
           </div>
           <div className="flex-col items-center px-3 box-border">
             <h3 className="w-fit  font-semibold leading-5 text-slate-100">
-              {song.title}
+              {allSong[id].songName}
             </h3>
             <h5 className="w-fit font-thin text-slate-100">Jaden,Kid Cudi</h5>
           </div>
@@ -58,7 +66,7 @@ export default function MusicPlayer() {
                   <audio
                     onTimeUpdate={changeValue}
                     autoPlay={true}
-                    src={song}
+                    src={allSong[id].musicLink}
                   ></audio>
                   <Play />
                 </button>

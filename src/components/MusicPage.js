@@ -8,6 +8,7 @@ import { RewardMedal } from "../Assets/Icons";
 import opensea from "../Assets/opensea.svg";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+// import MusicPlayer from './MusicPlayer.js'
 import {
   ConnectDevice,
   Loop,
@@ -22,6 +23,7 @@ import {
   Volume,
 } from "../Assets/Icons";
 import RewardPopup from "./RewardPopup";
+import MusicPlayer from "./MusicPlayer";
 
 export default function MusicPage() {
   const [reward, setReward] = useState(false);
@@ -171,6 +173,7 @@ export default function MusicPage() {
           </div>
         </div>
       </div>
+      <MusicPlayer id={id}/>
     </div>
   );
 }

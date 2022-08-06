@@ -25,7 +25,7 @@ const Layout = () => {
             </Routes>
             {/* <MusicPage/> */}
 
-            <MusicPlayer />
+            {/* <MusicPlayer /> */}
           </BrowserRouter>
         </div>
 

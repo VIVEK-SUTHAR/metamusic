@@ -45,6 +45,7 @@ export default function RewardPopup(props) {
           onClick={() => {
             sendAmmount(rewarsAmmount).then((res) => {
               setTxnhash(`https://mumbai.polygonscan.com/tx/${res.hash}`);
+              
             });
           }}
           className="bg-purple-500 p-2"
