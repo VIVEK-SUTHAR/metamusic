@@ -34,7 +34,7 @@ contract MetaMusic is ERC721, ERC721Enumerable, ERC721URIStorage {
         string bannerImage;
     }
 
-    constructor() ERC721("SPOTIFYTOKEN", "SPT3") {}
+    constructor() ERC721("MetaMusic", "MTM") {}
 
     function mintMusicNFT(
         string memory musicLink_,
@@ -82,11 +82,6 @@ contract MetaMusic is ERC721, ERC721Enumerable, ERC721URIStorage {
         require(msg.value > 0, "Mufat me nam kamana hai");
         songOwner_.transfer(msg.value);
     }
-
-    function burnToken(uint256 tokenID) external {
-        _burn(tokenID);
-    }
-
     // The following functions are overrides required by Solidity.
     function _beforeTokenTransfer(
         address from,

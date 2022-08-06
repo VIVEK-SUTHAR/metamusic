@@ -38,8 +38,8 @@ function UploadMusic() {
     const metadata = await saveMetaData(
       ImageFile,
       name,
-      singer,
-      cid
+      cid,
+      singer
     );
     const mintSongData = await MintSong(
       cid,
