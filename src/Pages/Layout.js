@@ -8,6 +8,7 @@ import {
   } from "react-router-dom";
 import { useEffect } from "react"
 import UploadMusic from "./UploadMusic"
+import MusicPage from "../components/MusicPage";
 const Layout = () => {
     return (
         <div className="flex flex-row">
@@ -15,11 +16,12 @@ const Layout = () => {
             <Sidebar />
                 <Routes>
                     {/* <Route index element={<Sidebar />} /> */}
-                    <Route path="/" element={<MusicPanel/>} />
-                    <Route path="/upload" element={<UploadMusic/>} />
+                    {/* <Route path="/" element={<MusicPanel/>} /> */}
+                    {/* <Route path="/upload" element={<UploadMusic/>} /> */}
                     {/* <Route index element={<MusicPlayer />} /> */}
                 
                 </Routes>
+                <MusicPage/>
                 <MusicPlayer/>
             </BrowserRouter>
         </div>
