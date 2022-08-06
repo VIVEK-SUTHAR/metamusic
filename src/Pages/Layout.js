@@ -11,22 +11,27 @@ import UploadMusic from "./UploadMusic"
 import MusicPage from "../components/MusicPage";
 const Layout = () => {
     return (
+        <>
+            
         <div className="flex flex-row">
-            <BrowserRouter>
+          <BrowserRouter>
             {/* <Sidebar /> */}
-                <Routes>
-                    {/* <Route index element={<Sidebar />} /> */}
-                    <Route path="/" element={<MusicPanel/>} />
-                    <Route path="/upload" element={<UploadMusic/>} />
-                    <Route path="/:id" element={<MusicPage/>} /> 
-                    {/* <Route index element={<MusicPlayer />} /> */}
-                
-                </Routes>
-                {/* <MusicPage/> */}
-                <MusicPlayer/>
-            </BrowserRouter>
+            <Routes>
+              {/* <Route index element={<Sidebar />} /> */}
+              <Route path="/" element={<MusicPanel />} />
+              <Route path="/upload" element={<UploadMusic />} />
+              <Route path="/:id" element={<MusicPage />} />
+              {/* <Route index element={<MusicPlayer />} /> */}
+            </Routes>
+            {/* <MusicPage/> */}
+
+            <MusicPlayer />
+          </BrowserRouter>
         </div>
-    )
+
+       
+      </>
+    );
 }
 
 export default Layout
