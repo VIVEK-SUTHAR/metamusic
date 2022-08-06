@@ -1,20 +1,33 @@
 import React, { useEffect } from "react";
-import { Previous } from "../Assets/Icons";
+import { PlayAtAlbum, Previous } from "../Assets/Icons";
 import { Next } from "../Assets/Icons";
 import useStore from "../Store/store";
 import { PauseAtAlbum } from "../Assets/Icons";
-import RewardPopup from "./RewardPopup";
-import { Reward } from "../Assets/Icons";
 import { useState } from "react";
 import { RewardMedal } from "../Assets/Icons";
 import opensea from "../Assets/opensea.svg";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import {
+  ConnectDevice,
+  Loop,
+  Lyrics,
+  NextSong,
+  Pause,
+  Play,
+  PreviousSong,
+  Queue,
+  Reward,
+  Shuffle,
+  Volume,
+} from "../Assets/Icons";
+import RewardPopup from "./RewardPopup";
 
 export default function MusicPage() {
   const [reward, setReward] = useState(false);
   const store = useStore();
   const currentAccount = store.currentAccount.slice(38);
+  const [play, setPlay] = useState(false);
   const allsong=store.allsong;
   console.log(allsong);
   const {id}=useParams();
@@ -52,20 +65,33 @@ export default function MusicPage() {
         <div className="shadow-2xl shadow-slate-900 rounded-lg">
           <img
             className="max-h-60 rounded-lg "
-            src="https://i.scdn.co/image/ab67706f00000002d324d714e59faec1c968c219"
+            src={allsong[id].bannerImage}
             alt=""
           />
         </div>
         <div className="px-8">
-          <h4 className="text-lg font-bold text-white">Song Type</h4>
+          {/* <h4 className="text-lg font-bold text-white">Song Type</h4> */}
           <h1 className="font-extrabold text-7xl text-white">{allsong[id].songName}</h1>
-          <p className="flex font-bold text-white">2022</p>
+          <p className="flex font-bold text-white">{allsong[id].singer}</p>
         </div>
       </div>
 
       <div className="h-[10vh] w-full items-center flex">
         <div className=" ml-8 bg-green-500 hover:scale-110 ease-in-out duration-150 w-14 h-14 min-w-max min-h-max rounded-full gap-y-5 flex items-center justify-center">
-          <PauseAtAlbum />
+          {play ? (
+            <button onClick={() => setPlay((play) => !play)}>
+                  <audio
+                    // onTimeUpdate={changeValue}
+                    autoPlay={true}
+                    src={allsong[id].musicLink}
+                  ></audio>
+                  <PlayAtAlbum />
+                </button>
+              ) : (
+                <button onClick={() => setPlay((play) => !play)}>
+                  <PauseAtAlbum />
+                </button>
+              )}
         </div>
 
         <a href={`https://testnets.opensea.io/assets/mumbai/0x01e32e85da4d6cd0c8f4fea41fad1a90136697c8/9`}>
@@ -122,12 +148,26 @@ export default function MusicPage() {
           <hr className="mx-8 mt-4 " />
         </div>
 
-        <div className="hover:bg-[#a7a7a7] font-Abeezee drop-shadow-lg ease-in-out duration-200 h-12 mt-4 mx-8 rounded-md flex items-center">
-          <ul className="list-decimal tracking-widest mx-8 font-medium text-lg text-white">
-            <li className="">
-              <h1 className="">Song Name</h1>
-            </li>
-          </ul>
+        <div className="hover:bg-[#a7a7a7] tracking-widest font-Abeezee drop-shadow-lg ease-in-out duration-200 h-12 mt-4 mx-8 rounded-md flex items-center">
+          <div className="list-decimal tracking-widest mx-8 flex font-medium text-lg text-white">
+            {play ? (
+                <button className="mx-2 " onClick={() => setPlay((play) => !play)}>
+                  <audio
+                    // onTimeUpdate={changeValue}
+                    autoPlay={true}
+                    src={allsong[id].musicLink}
+                  ></audio>
+                  <Play />
+                </button>
+              ) : (
+                <button className="mx-2 " onClick={() => setPlay((play) => !play)}>
+                  <span className="pr-2">1. </span> 
+                  {/* <Pause /> */}
+                  {/* <Play/> */}
+                </button>
+              )}
+              <h1 className="">{allsong[id].songName}</h1>
+          </div>
         </div>
       </div>
     </div>
