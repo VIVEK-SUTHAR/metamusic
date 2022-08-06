@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
-import {saveMetaData} from "../utils/saveMetaData";
+import { saveMetaData } from "../utils/saveMetaData";
 import StoreToIPFS from "../utils/saveToIPFS";
 import uploadBannerToIPFS from "../utils/uploadSongBanner";
 import MintSong from "../utils/MintSong";
@@ -9,6 +9,10 @@ function UploadMusic() {
   const [audioFile, setAudioFile] = useState(null);
   const [ImageFile, setImageFile] = useState(null);
   const [imageUrl, setImageurl] = useState(null);
+
+  const [name, setName] = useState("");
+  const [singer, setSinger] = useState("");
+  const [album, setAlbum] = useState("");
 
   const handleFileChange = async (e) => {
     e.preventDefault();
@@ -26,60 +30,28 @@ function UploadMusic() {
     }
   };
 
-  const [songData, setSongData] = useState({
-    name: "",
-    singer: "",
-    albumName: "",
-    license: "",
-  });
-
-  const handleSongdata = (e) => {
-    setSongData((songData) => ({
-      ...songData,
-      [e.target.name]: [e.target.value],
-    }));
-  };
-
   const handleMint = async () => {
     const cid = await StoreToIPFS(audioFile);
     console.log(cid);
     const image = await uploadBannerToIPFS(ImageFile);
     console.log(image);
     const metadata = await saveMetaData(
-      ImageFile,songData.name,songData.singer,cid
+      ImageFile,
+      name,
+      singer,
+      cid
     );
     const mintSongData = await MintSong(
-      cid,metadata.url,"test","test","test","test" 
-    )
+      cid,
+      metadata.url,
+      name,
+      singer,
+      album,
+      image.imageLink
+    );
     console.log(mintSongData);
   };
 
-  const inputFields = [
-    {
-      label: "Song Name",
-      inputName: "songName",
-      value: songData.songName,
-      required: true,
-    },
-    {
-      label: "Singer",
-      inputName: "singer",
-      value: songData.singer,
-      required: true,
-    },
-    {
-      label: "Album Name",
-      inputName: "albumName",
-      value: songData.albumName,
-      required: false,
-    },
-    {
-      label: "License",
-      inputName: "license",
-      value: songData.license,
-      required: false,
-    },
-  ];
   return (
     <div className="flex flex-col w-screen overflow-hidden min-h-screen">
       <Navbar />
@@ -89,25 +61,30 @@ function UploadMusic() {
         </div>
         <div className="flex flex-row px-3">
           <div className="flex flex-1 flex-col bg-[#121212] w-full">
-            {inputFields.map((input) => (
-              <>
-                {/* <label className="text-white text-xl my-4" htmlFor="songName">
-									{input.label}
-								</label> */}
-                <input
-                  className="glass-strong px-4 py-4 my-4 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  type="text"
-                  placeholder={input.label}
-                  value={input.value}
-                  name={input.inputName}
-                  onChange={handleSongdata}
-                  required={input.required}
-                />
-              </>
-            ))}
+            <input
+              className="glass-strong px-4 py-4 my-4 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              type="text"
+              placeholder="Song name"
+              onChange={(e) => setName(e.target.value)}
+              required=""
+            />
+            <input
+              className="glass-strong px-4 py-4 my-4 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              type="text"
+              placeholder="Singer name"
+              onChange={(e) => setSinger(e.target.value)}
+              required=""
+            />
+            <input
+              className="glass-strong px-4 py-4 my-4 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              type="text"
+              placeholder="Album name"
+              onChange={(e) => setAlbum(e.target.value)}
+              required=""
+            />
             <button
               type="submit"
-              disabled={!songData.songName || !songData.singer}
+              disabled={!name || !singer}
               onClick={handleMint}
               className="bg-purple-400 text-white text-3xl font-extrabold rounded-md my-6 px-2 py-4 disabled:bg-purple-200"
             >
