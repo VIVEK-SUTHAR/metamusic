@@ -1,6 +1,7 @@
 import { Next, Previous, Search } from "../Assets/Icons";
 import { Link } from "react-router-dom";
 import useStore from "../Store/store";
+import MetaMask from '../Assets/metalogo.svg'
 export default function Navbar() {
   const store = useStore();
   const currentAccount = store.currentAccount.slice(38);
@@ -16,6 +17,11 @@ export default function Navbar() {
             <Next />
           </li>
         </ul> */}
+        <ul className="flex py-2">
+          <li>
+            <img src={MetaMask} alt="" />
+          </li>
+        </ul>
         <ul className="flex py-2 ">
           <li className="relative block w-96">
             <span className="absolute inset-y-0 left-0 flex items-center pl-2">

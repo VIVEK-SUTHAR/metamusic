@@ -19,7 +19,7 @@ export default function Container() {
       <Genre />
       <div className="w-screen flex flex-row flex-wrap justify-center gap-10 overflow-x-scroll Scroll ml-3 mb-24">
         {allSongs.map((item, index) => (
-          <Link to={"1"}>
+          <Link to= {`/${index}`}>
             <MusicCard image={item.bannerImage} name={item.songName} singer={item.singer}/>
           </Link>
         ))}

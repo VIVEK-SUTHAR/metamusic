@@ -1,11 +1,11 @@
-import MetaMask from '../Assets/MetaMusicLogo.png'
+import MetaMask from '../Assets/metalogo.svg'
 import illustration from '../Assets/metacreator2.png'
 
 const Hero = ({ connectWallet }) => {
     return (
         <div className="min-h-screen glass min-w-full">
             <div id="nav" className="flex flex-row justify-between top-0 mt-0 px-12">
-                <img src={MetaMask} alt="" className="w-32 image" />
+                <img src={MetaMask} alt="" className="" />
                 <ul className="flex flex-row items-center justify-center transition-all ease-in-out duration-300 text-2xl font-Barlow font-light ">
                     <li className="mx-6 my-2 text-white font-mono w-min h-min hover:cursor-pointer navlink rounded-lg px-4 py-2 hover:text-purple-400" >Home</li>
                     <li className="mx-6 my-2 text-white font-mono w-min h-min hover:cursor-pointer navlink rounded-lg px-4 py-2 hover:text-purple-400" >About</li>
