@@ -18,6 +18,7 @@ const Layout = () => {
                     {/* <Route index element={<Sidebar />} /> */}
                     <Route path="/" element={<MusicPanel/>} />
                     <Route path="/upload" element={<UploadMusic/>} />
+                    <Route path="/:id" element={<MusicPage/>} /> 
                     {/* <Route index element={<MusicPlayer />} /> */}
                 
                 </Routes>
