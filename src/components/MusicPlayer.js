@@ -52,7 +52,7 @@ export default function MusicPlayer() {
                   <audio
                     onTimeUpdate={changeValue}
                     autoPlay={true}
-                    src={inTheDark}
+                    src={song}
                   ></audio>
                   <Play />
                 </button>
