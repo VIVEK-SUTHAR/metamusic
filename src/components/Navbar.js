@@ -1,3 +1,4 @@
+
 import { Next, Previous } from "../Assets/Icons";
 import { Link } from "react-router-dom";
 import useStore from "../Store/store";
@@ -49,3 +50,5 @@ export default function Navbar() {
     </div>
   );
 }
+
+

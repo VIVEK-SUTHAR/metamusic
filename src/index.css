@@ -108,8 +108,14 @@ code {
   background: #78ffd6;
 }
 .image{
-  width: 180px;
-  max-height: 130px;
+  width: 220px;
+  max-height: 120px;
   object-fit: cover;
   filter: invert(0.83) ;
+}
+.navlink:hover{
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: 2;
+  transition:all 0.1s ease-in-out;
+  backdrop-filter: blur(100px);
 }

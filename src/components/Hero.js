@@ -24,9 +24,9 @@ const Hero = ({ connectWallet }) => {
             <div id="nav" className="flex flex-row justify-between top-0 mt-0 px-12">
                 <img src={MetaMask} alt="" className="w-32 image" />
                 <ul className="flex flex-row items-center justify-center transition-all ease-in-out duration-300 text-2xl font-Barlow font-light ">
-                    <li className="mx-6 my-2 text-white font-mono " >Home</li>
-                    <li className="mx-6 my-2 text-white font-mono " >About</li>
-                    <li className="mx-6 my-2 text-white font-mono " onClick={connectWallet} ><button className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-3 rounded-xl hover:scale-94 text-white" >Connect</button></li>
+                    <li className="mx-6 my-2 text-white font-mono w-min h-min hover:cursor-pointer navlink rounded-lg px-4 py-2 hover:text-purple-400" >Home</li>
+                    <li className="mx-6 my-2 text-white font-mono w-min h-min hover:cursor-pointer navlink rounded-lg px-4 py-2 hover:text-purple-400" >About</li>
+                    <li className="mx-6 my-2 text-white font-mono w-min h-min hover:cursor-pointer p-4" onClick={connectWallet} ><button className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-3 rounded-xl hover:scale-105 transition-all text-white" >Connect</button></li>
                 </ul>
             </div>
             {/* <hr className="h-1 w-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"/> */}
@@ -36,7 +36,7 @@ const Hero = ({ connectWallet }) => {
                     <h2 className="text-5xl font-QuickSand text-purple-500 font-extrabold my-10  tracking-widest ">Listen | Own | Earn</h2>
                     <div className="flex justify-between max-w-sm">
                         <button className="px-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 max-w-xs font-semibold py-4 rounded-2xl hover:scale-94 text-2xl text-white hover:scale-105 transition-all" onClick={connectWallet}>Connect Wallet </button>
-                        <button className="px-4 border-purple-400 border-2 max-w-xs font-semibold py-4 rounded-2xl hover:scale-94 text-2xl text-purple-500 hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:text-white hover:border-white hover:scale-105 transition-all" onClick={connectWallet}>Learn More </button>
+                        <button className="glass-strong px-4 border-purple-400 border-0 max-w-xs font-semibold py-4 rounded-2xl hover:scale-94 text-2xl text-purple-500 hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:text-white hover:scale-105 transition-all" onClick={connectWallet}>Learn More </button>
                     </div>
                 </main>
                 <div className="max-w-xl mt-4">

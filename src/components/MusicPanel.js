@@ -1,4 +1,3 @@
-import UploadMusic from "../Pages/UploadMusic";
 import Container from "./Container";
 import Navbar from "./Navbar";
 export default function MusicPanel() {
