@@ -24,7 +24,7 @@ export default function MusicPlayer() {
     // console.log(playValue);
   };
   return (
-    <div className="z-10 h-20 fixed align-middle flex bg-[#2a2a2a] mx-3  px-2 bottom-1 rounded-lg  transition-all  ">
+    <div className="z-10 h-20 fixed align-middle flex bg-[#2a2a2a] mx-3 px-2 bottom-1 rounded-lg transition-all">
       <div className="flex items-center">
         <div className="w-[calc(24rem+4rem)] h-14 flex">
           <div className="w-14 h-14">

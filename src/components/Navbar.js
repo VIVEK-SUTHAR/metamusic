@@ -1,5 +1,4 @@
-
-import { Next, Previous } from "../Assets/Icons";
+import { Next, Previous, Search } from "../Assets/Icons";
 import { Link } from "react-router-dom";
 import useStore from "../Store/store";
 export default function Navbar() {
@@ -9,20 +8,33 @@ export default function Navbar() {
   return (
     <div className="bg-[#2a2a2a]  h-16 w-full px-8">
       <div className="flex items-center justify-between h-full text-neutral-400 text-base font-medium">
-        <ul className="flex">
+        {/* <ul className="flex">
           <li>
             <Previous />
           </li>
           <li className="ml-5">
             <Next />
           </li>
+        </ul> */}
+        <ul className="flex py-2 ">
+          <li className="relative block w-96">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+              <Search />
+            </span>
+            <input
+              className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none text-gray-800"
+              placeholder="Search songs"
+              type="text"
+              name="search"
+            />
+          </li>
         </ul>
         <ul className="flex items-center">
           <li className=" hover:text-white hover:scale-105">
             <Link to="/">
-            <a href="/" className=" ">
-              <span className="mx-4">Home</span>
-            </a>
+              <a href="/" className=" ">
+                <span className="mx-4">Home</span>
+              </a>
             </Link>
           </li>
           <li className=" hover:text-white hover:scale-105">
@@ -31,7 +43,7 @@ export default function Navbar() {
             </a>
           </li>
           <li className=" hover:text-white hover:scale-105">
-            <a href="/" className=" ">
+            <a href="/upload" className=" ">
               <span className="mx-4">Download</span>
             </a>
           </li>
@@ -50,5 +62,3 @@ export default function Navbar() {
     </div>
   );
 }
-
-

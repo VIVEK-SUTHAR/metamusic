@@ -13,7 +13,7 @@ const Layout = () => {
     return (
         <div className="flex flex-row">
             <BrowserRouter>
-            <Sidebar />
+            {/* <Sidebar /> */}
                 <Routes>
                     {/* <Route index element={<Sidebar />} /> */}
                     {/* <Route path="/" element={<MusicPanel/>} /> */}
