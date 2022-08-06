@@ -1,3 +1,4 @@
+import UploadMusic from "../Pages/UploadMusic";
 import Container from "./Container";
 import Navbar from "./Navbar";
 export default function MusicPanel() {
@@ -6,6 +7,7 @@ export default function MusicPanel() {
             <div className="flex flex-col w-screen overflow-hidden">
                 <Navbar />
                 <Container/>
+                {/* <UploadMusic/> */}
             </div>
         </>
     );

@@ -1,4 +1,5 @@
 import { Next, Previous } from "../Assets/Icons";
+import { Link } from "react-router-dom";
 import useStore from "../Store/store";
 export default function Navbar() {
   const store = useStore();
@@ -17,9 +18,11 @@ export default function Navbar() {
         </ul>
         <ul className="flex items-center">
           <li className=" hover:text-white hover:scale-105">
+            <Link to="/">
             <a href="/" className=" ">
-              <span className="mx-4">Premium</span>
+              <span className="mx-4">Home</span>
             </a>
+            </Link>
           </li>
           <li className=" hover:text-white hover:scale-105">
             <a href="/" className=" ">
@@ -32,9 +35,11 @@ export default function Navbar() {
             </a>
           </li>
           <li className="hover:text-white hover:scale-105 ">
-            <a href="/" className="  mr-8">
-              <span className="pl-4 border-l-2 mx-4">Upload</span>
-            </a>
+            <Link to="/upload">
+              <a href="/" className="  mr-8">
+                <span className="pl-4 border-l-2 mx-4">Upload</span>
+              </a>
+            </Link>
           </li>
           <button className="rounded-full bg-slate-100 hover:scale-105 px-8 py-3 text-black">
             {`0x..${currentAccount}`}
