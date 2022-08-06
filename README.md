@@ -50,3 +50,14 @@ Technologies used in the project:
 <h2>💖Like my work?</h2>
 
 Contact us at: sahkakwani@gmail.com sutharvivek18@gmail.com
+
+
+
+
+## Screenshots
+
+![Landing Page](https://ipfs.filebase.io/ipfs/QmczB4KTCwrnB88nZmCQCWBqBg9kxUHkJoKkF6YEHYq5Ps)
+![Main Page](https://ipfs.filebase.io/ipfs/QmbpmZj7v6VLXwu8znSGrw7C1uNafiGL33GoRnkAapdQay)
+![song Page]https://ipfs.filebase.io/ipfs/QmQFzFtHgfwnzAgaAGv219Y8bGUUQe3TxZagNbECFSwLFa)
+![upload song](https://ipfs.filebase.io/ipfs/QmTZFM6pSoSzwM6EqSAYUGMXY73QiC6DiK7aBWbYMqoDuL)
+![Tip The creatoe](https://ipfs.filebase.io/ipfs/QmT7XUE6hrcvG4h3Qxdm4TkJbKj5WXrzHayPHPg9CoaDZL)
