@@ -108,11 +108,12 @@ function UploadMusic() {
                   <input
                     type="file"
                     className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100 my-6"
+                    onChange={handleFileChange}
                   />
                 </div>
               </form>
             </div>
-            <div className="border-4 border-dashed border-green-400 my-24 text-green-400 p-8 h-72 flex flex-col justify-center items-center rounded-md">
+            {/* <div className="border-4 border-dashed border-green-400 my-24 text-green-400 p-8 h-72 flex flex-col justify-center items-center rounded-md">
               <h6 className="text-2xl">
                 Upload Your Music in .mp3,.wav or any format
               </h6>
@@ -122,7 +123,7 @@ function UploadMusic() {
                 onChange={handleFileChange}
                 //   accept=".mp3 .wav"
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
