@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import MetaMask from '../Assets/MetaMusicLogo.png'
-import illustration from '../Assets/illustration.png'
+import illustration from '../Assets/metacreator2.png'
 const Hero = ({ connectWallet }) => {
     useEffect(() => {
         window.addEventListener("scroll", () => {
