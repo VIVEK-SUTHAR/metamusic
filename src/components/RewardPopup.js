@@ -48,7 +48,7 @@ export default function RewardPopup(props) {
         <div className="p-4">
           <h4 className="text-2xl">Send some reward to creator</h4>
           <input
-            className="border-2 my-2 rounded-lg p-2 outline-none border-2 focus:ring-purple-500 focus:ring-2"
+            className="w-full border-2 my-2 rounded-lg p-2 outline-none focus:ring-purple-500 focus:ring-2"
             type="number"
             value={rewarsAmmount}
             onChange={(e) => {
@@ -69,7 +69,7 @@ export default function RewardPopup(props) {
                 });
               setTxnhash(`https://mumbai.polygonscan.com/tx/${res.hash}`);
             }}
-            className="bg-purple-500 p-2"
+            className="bg-purple-500 p-2 w-full rounded-lg mt-32"
           >
             Send {rewarsAmmount} MATIC to creator
           </button>
