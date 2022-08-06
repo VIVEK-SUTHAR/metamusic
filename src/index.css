@@ -103,6 +103,13 @@ code {
   outline: none;
   border: none;
   border-radius: 5px;
-}.fileInput::-webkit-input-placeholder{
+}
+.fileInput::-webkit-input-placeholder{
   background: #78ffd6;
+}
+.image{
+  width: 180px;
+  max-height: 130px;
+  object-fit: cover;
+  filter: invert(0.83) ;
 }
