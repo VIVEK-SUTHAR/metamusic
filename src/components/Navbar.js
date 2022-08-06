@@ -21,12 +21,13 @@ export default function Navbar() {
   const handlequery = (e) => {
     e.preventDefault();
     setQuery(e.target.value);
-    for (let i = 0; i < allSongs.length; i++) {
-      if (allSongs[i].songName.includes(query)) {
-        // console.log(allSongs[i].songName);
-        setallmusic(allSongs[i])
-      }      
-    }
+    console.log(query);
+    // for (let i = 0; i < allSongs.length; i++) {
+    //   if (allSongs[i].songName.includes(query)) {
+    //     console.log(allSongs[i]);
+    //     // setallmusic(allSongs[i])
+    //   }      
+    // }
   };
 
   return (
