@@ -44,8 +44,24 @@ npm run start
   
   
 <h2>💻 Built with</h2>
+## Tech Stack
 
-Technologies used in the project:
+**Front-End:** 
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=black)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Ethers JS](https://img.shields.io/badge/EthersJS-pink?style=for-the-badge&logo=javascript&logoColor=black)
+ Zustand[For State Management]
+**Smart Contract:** ![Solidity](https://img.shields.io/badge/solidity-%2338B2AC.svg?style=for-the-badge&logo=solidity&logoColor=black)
+
+## Deployed to
+
+- **Front-end:** Netlify
+
+- **Smart-contract:** Polygon Testnet(Matic Mumbai)
+
+
+
 
 <h2>💖Like my work?</h2>
 
