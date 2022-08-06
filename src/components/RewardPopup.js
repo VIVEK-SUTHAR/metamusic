@@ -37,6 +37,7 @@ export default function RewardPopup(props) {
           type="number"
           value={rewarsAmmount}
           onChange={(e) => {
+            e.preventDefault()
             setRewarsAmmount(e.target.value);
           }}
         />
@@ -50,7 +51,7 @@ export default function RewardPopup(props) {
         >
           Send {rewarsAmmount} MATIC to creator
         </button>
-        {txnhash.length !== 0 ? (
+        {txnhash.length > 0 ? (
           <h5 className="relative  my-4">
             Follow your transaction{" "}
             <a className="text-purple-700" href={txnhash} target="_blank">

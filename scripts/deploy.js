@@ -8,7 +8,6 @@ async function main() {
   console.log("Contract deployed");
   console.log("Address:" + metaMusic.address);
 }
-
 main()
   .then(() => {
     process.exit(0);
