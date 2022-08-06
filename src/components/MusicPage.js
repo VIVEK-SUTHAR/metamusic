@@ -49,7 +49,7 @@ export default function MusicPage() {
         <div className="flex items-center justify-between h-full text-neutral-400 text-base font-medium">
           <ul className="flex">
             <li
-              className="w-14 bg-transparent hover:bg-slate-400"
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-transparent hover:bg-[#a7a7a7]"
               onClick={() => window.history.back()}
             >
               <Previous />

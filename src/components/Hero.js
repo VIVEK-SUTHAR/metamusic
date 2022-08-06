@@ -1,14 +1,25 @@
 import MetaMask from '../Assets/metalogo.svg'
 import illustration from '../Assets/metacreator2.png'
+import { useState } from 'react'
 
 const Hero = ({ connectWallet }) => {
+const [about, setAbout] = useState(false)
+
     return (
         <div className="min-h-screen glass min-w-full">
             <div id="nav" className="flex flex-row justify-between top-0 mt-0 px-12">
                 <img src={MetaMask} alt="" className="" />
-                <ul className="flex flex-row items-center justify-center transition-all ease-in-out duration-300 text-2xl font-Barlow font-light ">
+                <ul className="flex flex-row items-center relative justify-center transition-all ease-in-out duration-300 text-2xl font-Barlow font-light ">
                     <li className="mx-6 my-2 text-white font-mono w-min h-min hover:cursor-pointer navlink rounded-lg px-4 py-2 hover:text-purple-400" >Home</li>
-                    <li className="mx-6 my-2 text-white font-mono w-min h-min hover:cursor-pointer navlink rounded-lg px-4 py-2 hover:text-purple-400" >About</li>
+                    <li onClick={()=>setAbout(!true)} className="mx-6 my-2 text-white font-mono w-min h-min hover:cursor-pointer navlink rounded-lg px-4 py-2 hover:text-purple-400" >About</li>
+
+                    
+                    <div className={`AboutPart ${about?"flex" : "hidden"}  absolute top-20 bg-gradient-to-br from-slate-200 via-slate-500 to-slate-700 shadow-black shadow-2xl p-4 rounded-l `}>
+                        <h3>Metamusic is a decentralized music platform where artists can showcase their work as NFT , and can claim rewards for the same.</h3>
+                        <br/>
+                        <h3>Enjoy your music, keep listening</h3>
+                    </div>
+
                     <li className="mx-6 my-2 text-white font-mono w-min h-min hover:cursor-pointer p-4" onClick={connectWallet} ><button className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 px-3 rounded-xl hover:scale-105 transition-all text-white" >Connect</button></li>
                 </ul>
             </div>
