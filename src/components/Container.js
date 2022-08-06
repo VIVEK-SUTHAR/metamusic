@@ -12,7 +12,6 @@ export default function Container() {
   
   useEffect(() => {
     getAllSongs().then(res => {
-      
       setallSongs(res);
       setAllsong(res);
     });

@@ -1,11 +1,32 @@
-import { Next, Previous, Search } from "../Assets/Icons";
+import { Search } from "../Assets/Icons";
 import { Link } from "react-router-dom";
 import useStore from "../Store/store";
-import MetaMask from '../Assets/metalogo.svg'
+import MetaMask from "../Assets/metalogo.svg";
+import { useEffect, useState } from "react";
+import getAllSongs from "../utils/getAllSongs";
+
 export default function Navbar() {
+  const [query, setQuery] = useState("");
+  const [allSongs, setAllsongs] = useState("");
   const store = useStore();
   const currentAccount = store.currentAccount.slice(38);
-  // currentAccount.slice(38)
+
+  useEffect(() => {
+    getAllSongs().then((res) => {
+      setAllsongs(res)
+    });
+  }, []);
+
+  const handlequery = (e) => {
+    e.preventDefault();
+    setQuery(e.target.value);
+    for (let i = 0; i < allSongs.length; i++) {
+      if (allSongs[i].songName.includes(query)) {
+        console.log(allSongs[i].songName);
+      }      
+    }
+  };
+
   return (
     <div className="bg-[#2a2a2a]  h-16 w-full px-8">
       <div className="flex items-center justify-between h-full text-neutral-400 text-base font-medium">
@@ -32,13 +53,15 @@ export default function Navbar() {
               placeholder="Search songs"
               type="text"
               name="search"
+              autoComplete="off"
+              onChange={handlequery}
             />
           </li>
         </ul>
         <ul className="flex items-center">
           <li className=" hover:text-white hover:scale-105">
             <Link to="/">
-              <a href="/" className=" ">
+              <a href="/" className="">
                 <span className="mx-4">Home</span>
               </a>
             </Link>
