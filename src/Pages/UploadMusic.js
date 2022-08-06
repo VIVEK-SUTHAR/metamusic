@@ -38,11 +38,16 @@ function UploadMusic() {
     const image = await uploadBannerToIPFS(ImageFile);
     console.log(image);
        toast.update(audioCID, {
-         render: "Data uploaded to IPFS,Now approve the transaction in Wallet",
+         render: "Data uploaded to IPFS",
          type: "success",
          isLoading: false,
        });
     const metadata = await saveMetaData(ImageFile, name, cid, singer);
+    toast.update(audioCID, {
+      render: "Approve Transaction in Wallet",
+      type: "success",
+      isLoading: false,
+    });
     const mintSongData = await MintSong(
       cid,
       metadata.url,
