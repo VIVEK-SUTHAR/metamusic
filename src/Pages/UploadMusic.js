@@ -1,129 +1,130 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
-import saveMetaData from "../utils/saveMetaData";
+import { saveMetaData } from "../utils/saveMetaData";
 import StoreToIPFS from "../utils/saveToIPFS";
+import uploadBannerToIPFS from "../utils/uploadSongBanner";
+import MintSong from "../utils/MintSong";
+
 function UploadMusic() {
   const [audioFile, setAudioFile] = useState(null);
+  const [ImageFile, setImageFile] = useState(null);
+  const [imageUrl, setImageurl] = useState(null);
+
+  const [name, setName] = useState("");
+  const [singer, setSinger] = useState("");
+  const [album, setAlbum] = useState("");
+
   const handleFileChange = async (e) => {
     e.preventDefault();
     if (e.target.files[0]) {
       setAudioFile(e.target.files[0]);
     }
   };
-  const [songData, setSongData] = useState({
-    songName: "",
-    singer: "",
-    albumName: "",
-    license: "",
-  });
-  const handleSongdata = (e) => {
-    setSongData((songData) => ({
-      ...songData,
-      [e.target.name]: [e.target.value],
-    }));
+
+  const handleImageChange = async (e) => {
+    e.preventDefault();
+    if (e.target.files[0]) {
+      setImageFile(e.target.files[0]);
+      setImageurl(URL.createObjectURL(e.target.files[0]));
+      console.log(imageUrl);
+    }
   };
 
   const handleMint = async () => {
     const cid = await StoreToIPFS(audioFile);
     console.log(cid);
+    const image = await uploadBannerToIPFS(ImageFile);
+    console.log(image);
     const metadata = await saveMetaData(
-      songData.songName,
-      cid,
-      songData.singer
+      ImageFile,
+      name,
+      singer,
+      cid
     );
-    console.log(metadata);
+    const mintSongData = await MintSong(
+      cid,
+      metadata.url,
+      name,
+      singer,
+      album,
+      image.imageLink
+    );
+    console.log(mintSongData);
   };
-  const inputFields = [
-    {
-      label: "Song Name",
-      inputName: "songName",
-      value: songData.songName,
-      required: true,
-    },
-    {
-      label: "Singer",
-      inputName: "singer",
-      value: songData.singer,
-      required: true,
-    },
-    {
-      label: "Album Name",
-      inputName: "albumName",
-      value: songData.albumName,
-      required: false,
-    },
-    {
-      label: "License",
-      inputName: "license",
-      value: songData.license,
-      required: false,
-    },
-  ];
+
   return (
     <div className="flex flex-col w-screen overflow-hidden min-h-screen">
       <Navbar />
       <div className="bg-[#121212] h-full flex flex-col">
-        <div className=" font-bold text-center text-4xl my-6 text-green-400">
+        <div className=" font-bold text-center text-4xl my-6 text-purple-500">
           Lets Upload Your work
         </div>
-        <div className="flex flex-row">
+        <div className="flex flex-row px-3">
           <div className="flex flex-1 flex-col bg-[#121212] w-full">
-            {inputFields.map((input) => (
-              <>
-                {/* <label className="text-white text-xl my-4" htmlFor="songName">
-									{input.label}
-								</label> */}
-                <input
-                  className="glass-strong px-4 py-4 my-4 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-green-300 focus:border-transparent"
-                  type="text"
-                  placeholder={input.label}
-                  value={input.value}
-                  name={input.inputName}
-                  onChange={handleSongdata}
-                  required={input.required}
-                />
-              </>
-            ))}
+            <input
+              className="glass-strong px-4 py-4 my-4 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              type="text"
+              placeholder="Song name"
+              onChange={(e) => setName(e.target.value)}
+              required=""
+            />
+            <input
+              className="glass-strong px-4 py-4 my-4 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              type="text"
+              placeholder="Singer name"
+              onChange={(e) => setSinger(e.target.value)}
+              required=""
+            />
+            <input
+              className="glass-strong px-4 py-4 my-4 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              type="text"
+              placeholder="Album name"
+              onChange={(e) => setAlbum(e.target.value)}
+              required=""
+            />
             <button
               type="submit"
-              disabled={!songData.songName || !songData.singer}
+              disabled={!name || !singer}
               onClick={handleMint}
-              className="bg-green-400 text-white text-3xl font-extrabold rounded-md my-6 px-2 py-4 disabled:bg-green-200"
+              className="bg-purple-400 text-white text-3xl font-extrabold rounded-md my-6 px-2 py-4 disabled:bg-purple-200"
             >
               Mint Now
             </button>
           </div>
           <div className="flex flex-1 flex-col items-center  justify-start  bg-[#121212]  ">
-            <div className="flex w-full my-4 px-4">
+            <div className="flex flex-col w-full my-4 px-4">
               <form className="flex flex-col items-center w-full">
                 <div className="flex justify-evenly w-full items-center">
-                  <h6 className="w-72 text-md font-bold text-white">Upload your Music</h6>
+                  <h6 className="w-72 text-md font-bold text-white">
+                    Upload your Music
+                  </h6>
                   <input
                     type="file"
                     className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100 my-4"
-                  />
-                </div>
-                <div className="flex justify-evenly w-full items-center">
-                  <h6 className="w-72 text-md font-bold text-white">Upload your Music Photo</h6>
-                  <input
-                    type="file"
-                    className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100 my-6"
                     onChange={handleFileChange}
                   />
                 </div>
+                <div className="flex justify-evenly w-full items-center">
+                  <h6 className="w-72 text-md font-bold text-white">
+                    Upload your Music Photo
+                  </h6>
+                  <input
+                    type="file"
+                    className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100 my-6"
+                    onChange={handleImageChange}
+                  />
+                </div>
               </form>
+              {imageUrl ? (
+                <div className="h-64 w-full">
+                  <img
+                    src={imageUrl}
+                    alt=""
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+              ) : null}
             </div>
-            {/* <div className="border-4 border-dashed border-green-400 my-24 text-green-400 p-8 h-72 flex flex-col justify-center items-center rounded-md">
-              <h6 className="text-2xl">
-                Upload Your Music in .mp3,.wav or any format
-              </h6>
-              <input
-                type="file"
-                className=" file:bg-green-400 file:outline-none file:border-0 file:max-w-max file:rounded-md my-9 rounded-md cursor-pointer"
-                onChange={handleFileChange}
-                //   accept=".mp3 .wav"
-              />
-            </div> */}
           </div>
         </div>
       </div>

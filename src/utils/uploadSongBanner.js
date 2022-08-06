@@ -4,7 +4,7 @@ const client = create("https://ipfs.infura.io:5001/api/v0");
 const uploadBannerToIPFS = async (image) => {
     try {
         const uploadImage = await client.add(image, { pin: true });
-        const url = `https://ipfs.infura.io/ipfs/${uploadFile.path}`;
+        const url = `https://ipfs.infura.io/ipfs/${uploadImage.path}`;
         const imageInfo = {
             imageCID: uploadImage.cid,
             imageLink: url
