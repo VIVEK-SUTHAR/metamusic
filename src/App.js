@@ -1,8 +1,6 @@
 import Layout from "./Pages/Layout";
 function App() {
-  return (
-    <Layout />
-  );
+  return <Layout />;
 }
 
 export default App;
