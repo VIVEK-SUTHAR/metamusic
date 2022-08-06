@@ -78,7 +78,7 @@ function UploadMusic() {
     <div className="flex flex-col w-screen overflow-hidden min-h-screen">
       <Navbar />
       <div className="bg-[#121212] h-full flex flex-col">
-        <div className=" font-bold text-center text-4xl my-6 text-green-400">
+        <div className=" font-bold text-center text-4xl my-6 text-purple-500">
           Lets Upload Your work
         </div>
         <div className="flex flex-row px-3">
@@ -89,7 +89,7 @@ function UploadMusic() {
 									{input.label}
 								</label> */}
                 <input
-                  className="glass-strong px-4 py-4 my-4 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-green-300 focus:border-transparent"
+                  className="glass-strong px-4 py-4 my-4 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   type="text"
                   placeholder={input.label}
                   value={input.value}
@@ -103,7 +103,7 @@ function UploadMusic() {
               type="submit"
               disabled={!songData.songName || !songData.singer}
               onClick={handleMint}
-              className="bg-green-400 text-white text-3xl font-extrabold rounded-md my-6 px-2 py-4 disabled:bg-green-200"
+              className="bg-purple-400 text-white text-3xl font-extrabold rounded-md my-6 px-2 py-4 disabled:bg-purple-200"
             >
               Mint Now
             </button>
