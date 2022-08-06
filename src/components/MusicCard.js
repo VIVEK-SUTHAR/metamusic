@@ -32,7 +32,7 @@ export default function MusicCard() {
             class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt"
           ></img>
           <div className="PlayIcon hidden relative mx-28 animate-bounce -my-12 w-10 h-10 bg-green-400 rounded-full flex items-center justify-center">
-            <Pause />
+            <Pause /> 
           </div>
         </div>
         <div className="pt-4 text-white">
