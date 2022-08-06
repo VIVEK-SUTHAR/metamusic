@@ -1,12 +1,12 @@
 import { create } from "ipfs-http-client";
 const client = create("https://ipfs.infura.io:5001/api/v0");
-const saveMetaData = async (name, external_url, description) => {
+const saveMetaData = async (name, external_url,image, description) => {
 	try {
 		const metadata = {
 			"description": description,
 			"external_url": external_url,
-			"image": `ipfs://`,
-			"name": name,
+			"image": `ipfs://${image.imageCID}`,
+			"name": name
 		};
 		const uploadFile = await client.add(JSON.stringify(metadata), {
 			pin: true,

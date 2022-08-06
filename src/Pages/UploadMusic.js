@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import saveMetaData from "../utils/saveMetaData";
 import StoreToIPFS from "../utils/saveToIPFS";
+import uploadBannerToIPFS from "../utils/uploadSongBanner";
+import MintSong from "../utils/MintSong";
+
 function UploadMusic() {
   const [audioFile, setAudioFile] = useState(null);
   const [ImageFile, setImageFile] = useState(null);
@@ -40,12 +43,21 @@ function UploadMusic() {
   const handleMint = async () => {
     const cid = await StoreToIPFS(audioFile);
     console.log(cid);
+    const image = await uploadBannerToIPFS(ImageFile);
+    console.log(image);
     const metadata = await saveMetaData(
       songData.songName,
       cid,
+      image,
       songData.singer
     );
     console.log(metadata);
+    const metadataCid = metadata.metadataCid;
+    console.log();
+    const mintSongData = await MintSong(
+      cid, metadataCid, songData.songName, songData.singer, songData.albumName, image.imageLink
+    )
+    console.log(mintSongData);
   };
 
   const inputFields = [
