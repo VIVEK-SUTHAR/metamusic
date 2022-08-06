@@ -1,6 +1,9 @@
-<h1 align="center" id="title">MetaMusic</h1>
+<h1 align="center" id="title">
+  
+![Landing Page](https://ipfs.filebase.io/ipfs/QmT9cjxzQxkh9u9MT6YVoTdC2dQBhTnup3SmbPKMGF6krg)
+  MetaMusic</h1>
 
-<p id="description">MetaMusic is a decentralised platform where artist and singers can showcase their work as NFT and they can earn rewards for their work.</p>
+<h2  align="center" id="description">MetaMusic is a decentralised platform where artist and singers can showcase their work as NFT and they can earn rewards for their work.</h2>
 
   
   
@@ -44,7 +47,7 @@ npm run start
   
   
 <h2>💻 Built with</h2>
-## Tech Stack
+
 
 **Front-End:** 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
@@ -56,9 +59,9 @@ npm run start
 
 ## Deployed to
 
-- **Front-end:** Netlify
+- <h2>Front-end : Netlify </h2>
 
-- **Smart-contract:** Polygon Testnet(Matic Mumbai)
+- <h2>Smart-Contract : <img src="https://cryptologos.cc/logos/polygon-matic-logo.svg?v=023" height="22" width="22"/> Polygon Testnet </h2
 
 
 
