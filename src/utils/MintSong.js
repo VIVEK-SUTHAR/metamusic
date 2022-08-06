@@ -23,7 +23,7 @@ export default async function MintSong(
       albumName,
       bannerImage
     );
-
+    await songs.wait();
     console.log(songs);
   } catch (error) {
     console.log(error);

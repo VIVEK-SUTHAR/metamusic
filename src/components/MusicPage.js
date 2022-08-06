@@ -53,7 +53,9 @@ export default function MusicPage() {
           <PauseAtAlbum />
         </div>
 
-        <a href={`https://testnets.opensea.io/assets/mumbai/0x01e32e85da4d6cd0c8f4fea41fad1a90136697c8/9`}>
+        <a
+          href={`https://testnets.opensea.io/assets/mumbai/0x5E921d44C04A311d4cC98444513fD88554183E57/0`}
+        >
           <div className="px-12">
             <div className="flex min-w-max items-center min-h-max bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 p-1 rounded-full">
               <button
@@ -75,7 +77,6 @@ export default function MusicPage() {
           </div>
         </a>
 
-
         <div className="px-12">
           <div className="flex min-w-max items-center min-h-max bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 p-1 rounded-full">
             <button
@@ -95,8 +96,6 @@ export default function MusicPage() {
             }}
           />
         </div>
-
-
       </div>
 
       <div className="h-screen ">
