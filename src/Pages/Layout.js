@@ -7,8 +7,8 @@ const Layout = () => {
     return (
         <div className="flex flex-row">
             <Sidebar />
-            <MusicPanel />
-            {/* <UploadMusic/> */}
+            {/* <MusicPanel /> */}
+            <UploadMusic/>
             <MusicPlayer/>
         </div>
     )

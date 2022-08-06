@@ -14,7 +14,7 @@ import {
 import inTheDark from "../Assets/inTheDark.mp3";
 
 export default function MusicPlayer() {
-  const [song, setSong] = useState(inTheDark);
+  const [song, setSong] = useState("https://bafybeie54botbitl5iivjuypbuzsv3mczdy4s53mn4vfxdrbe7ppg42i5i.ipfs.infura-ipfs.io/");
   console.log(song);
   const [play, setPlay] = useState(false);
   const [currntTime, setCurrntTime] = useState(0);
