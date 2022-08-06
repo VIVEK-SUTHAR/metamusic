@@ -6,7 +6,9 @@ import { useEffect } from "react";
 
 export default function Container() {
   useEffect(() => {
-    getAllSongs();
+    getAllSongs().then(res => {
+      console.log(res);
+    });
   }, []);
 
   let MusicList = [];

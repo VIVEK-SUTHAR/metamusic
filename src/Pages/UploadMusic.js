@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
-import saveMetaData from "../utils/saveMetaData";
+import {saveMetaData} from "../utils/saveMetaData";
 import StoreToIPFS from "../utils/saveToIPFS";
 import uploadBannerToIPFS from "../utils/uploadSongBanner";
 import MintSong from "../utils/MintSong";
@@ -27,7 +27,7 @@ function UploadMusic() {
   };
 
   const [songData, setSongData] = useState({
-    songName: "",
+    name: "",
     singer: "",
     albumName: "",
     license: "",
@@ -46,16 +46,10 @@ function UploadMusic() {
     const image = await uploadBannerToIPFS(ImageFile);
     console.log(image);
     const metadata = await saveMetaData(
-      songData.songName,
-      cid,
-      image,
-      songData.singer
+      ImageFile,songData.name,songData.singer,cid
     );
-    console.log(metadata);
-    const metadataCid = metadata.metadataCid;
-    console.log();
     const mintSongData = await MintSong(
-      cid, metadataCid, songData.songName, songData.singer, songData.albumName, image.imageLink
+      cid,metadata.url,"test","test","test","test" 
     )
     console.log(mintSongData);
   };

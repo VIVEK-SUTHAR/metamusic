@@ -1,25 +1,24 @@
-import { create } from "ipfs-http-client";
-const client = create("https://ipfs.infura.io:5001/api/v0");
-const saveMetaData = async (name, external_url,image, description) => {
-	try {
-		const metadata = {
-			"description": description,
-			"external_url": external_url,
-			"image": `ipfs://${image.imageCID}`,
-			"name": name
-		};
-		const uploadFile = await client.add(JSON.stringify(metadata), {
-			pin: true,
-		});
-		const metaDataURL = `https://ipfs.infura.io/ipfs/${uploadFile.path}`;
-		const medataInfo = {
-			metadataCid: uploadFile.cid,
-			metaDataLink: metaDataURL
-		}
-		console.log(metaDataURL);
-		return medataInfo;
-	} catch (error) {
-		console.log(error);
-	}
+import React from "react";
+import { useState } from "react";
+import { NFTStorage } from "nft.storage";
+/// used NFT.storage to prepare the metadata for the NFT
+export const saveMetaData = async (image, Name, audioCID, Description) => {
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDM1MDk3QzQyMTAwY0QyNGYyODdBNEM4RUQ3MmIyYkVkMTczMzNjNzgiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY1OTU5NzI3OTY0NCwibmFtZSI6Ik1ZS0VZIn0.VQGeFmV9xrlW8Ag5EKpX4GqnTY40ekTCl0R3m3YbPjI";
+  console.log("Preparing Metadata ....");
+  const nft = {
+    image: image,
+    name: `${Name}`,
+    description: `The music file is stored here : ${audioCID} Check more details on the website`,
+    external_url: audioCID,
+  };
+  console.log("Uploading Metadata to IPFS ....");
+  const client = new NFTStorage({ token: token });
+  const metadata = await client.store(nft);
+  console.log(metadata);
+  console.log("NFT data stored successfully");
+  console.log("Metadata URI: ", metadata.url);
+  // SetMetadataURI(metadata.url);
+
+  return metadata;
 };
-export default saveMetaData;
