@@ -3,15 +3,20 @@ import getAllSongs from "../utils/getAllSongs";
 import Genre from "./Genre";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import useStore from "../Store/store";
 
 export default function Container() {
-
+  const state= useStore();
+  const setAllsong= state.setAllsong;
   const [allSongs, setallSongs] = useState([]);
   
   useEffect(() => {
     getAllSongs().then(res => {
+      
       setallSongs(res);
+      setAllsong(res);
     });
+    // console.log(allSongs);
   }, []);
 
   return (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Previous } from "../Assets/Icons";
 import { Next } from "../Assets/Icons";
 import useStore from "../Store/store";
@@ -9,11 +9,26 @@ import { useState } from "react";
 import { RewardMedal } from "../Assets/Icons";
 import opensea from "../Assets/opensea.svg";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export default function MusicPage() {
   const [reward, setReward] = useState(false);
   const store = useStore();
   const currentAccount = store.currentAccount.slice(38);
+  const allsong=store.allsong;
+  console.log(allsong);
+  const {id}=useParams();
+  console.log(allsong[id]);
+
+  
+  // console.log(id);
+  // // id ? (
+  //   // console.log(currentSong);
+  //  let currentSong= allsong[0]
+  //   useEffect(()=>{
+  //        currentSong= allsong[id];
+      
+  // },[id])
   return (
     <div className="container relative">
       <div className="bg-[#2a2a2a]  h-16 w-full px-8 flex items-center justify-between">
@@ -43,7 +58,7 @@ export default function MusicPage() {
         </div>
         <div className="px-8">
           <h4 className="text-lg font-bold text-white">Song Type</h4>
-          <h1 className="font-extrabold text-7xl text-white">Song Name</h1>
+          <h1 className="font-extrabold text-7xl text-white">{allsong[id].songName}</h1>
           <p className="flex font-bold text-white">2022</p>
         </div>
       </div>
