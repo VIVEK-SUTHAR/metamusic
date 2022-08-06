@@ -1,3 +1,5 @@
+import MetaMask from '../Assets/metalogo.svg'
+
 export default function MusicCard({ image, name, singer }) {
   return (
     <div className="bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 p-1 rounded-md">
@@ -8,7 +10,7 @@ export default function MusicCard({ image, name, singer }) {
             aria-hidden="false"
             draggable="false"
             loading="lazy"
-            src={image}
+            src={image ? image : MetaMask}
             data-testid="card-image"
             alt=""
             class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt"
