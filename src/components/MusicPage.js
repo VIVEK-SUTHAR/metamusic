@@ -27,7 +27,6 @@ export default function MusicPage() {
   //  let currentSong= allsong[0]
   //   useEffect(()=>{
   //        currentSong= allsong[id];
-      
   // },[id])
   return (
     <div className="container relative">

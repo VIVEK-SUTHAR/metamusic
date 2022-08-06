@@ -6,7 +6,6 @@ export default function MusicPanel() {
             <div className="flex flex-col w-screen overflow-hidden min-h-screen">
                 <Navbar />
                 <Container/>
-                
                 {/* <UploadMusic/> */}
             </div>
         </>

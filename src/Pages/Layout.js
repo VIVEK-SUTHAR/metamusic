@@ -12,7 +12,6 @@ import MusicPage from "../components/MusicPage";
 const Layout = () => {
     return (
         <>
-            
         <div className="flex flex-row">
           <BrowserRouter>
             {/* <Sidebar /> */}
