@@ -100,11 +100,10 @@ export default function MusicPage() {
         <a
           href={`https://testnets.opensea.io/assets/mumbai/0x5E921d44C04A311d4cC98444513fD88554183E57/${allsong[id].tokenID}`}
         >
-          <div className="px-12">
+          <div className="px-4">
             <div className="flex min-w-max items-center min-h-max bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 p-1 rounded-full">
               <button
-                onClick={() => setReward(true)}
-                className="min-w-max min-h-max items-center px-4 py-1 justify-between rounded-full flex font-extrabold bg-white"
+                className="min-w-max min-h-max items-center px-4 py-1 justify-evenly rounded-full flex font-extrabold bg-white"
               >
                 <div>VIEW ON OPENSEA</div>
                 <div className="min-w-max">
@@ -116,7 +115,7 @@ export default function MusicPage() {
           </div>
         </a>
 
-        <div className="px-12">
+        <div className="px-4">
           <div className="flex min-w-max items-center min-h-max bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 p-1 rounded-full">
             <button
               onClick={() => setReward(true)}
