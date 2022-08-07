@@ -18,6 +18,11 @@ Here're some of the project's best features:
 *   get decentralized music link
 *   Get your NFT on OpenSea in just seconds
 
+
+
+<h2>Check It Live:https://metamusicweb3.netlify.app/</h2>
+
+
 <h2>🛠️ Installation Steps:</h2>
 
 <p>1. Install Node.JS</p>
