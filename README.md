@@ -61,10 +61,13 @@ npm run start
 
 - <h2>Front-end : Netlify </h2>
 
-- <h2>Smart-Contract : <img src="https://cryptologos.cc/logos/polygon-matic-logo.svg?v=023" height="22" width="22"/> Polygon Testnet </h2
+- <h2>Smart-Contract : <img src="https://cryptologos.cc/logos/polygon-matic-logo.svg?v=023" height="22" width="22"/> Polygon Testnet </h2>
 
+## Decentralized Storage:
 
+- <h2>File-Coin(NFT.Storage)  <img src="https://cryptologos.cc/logos/filecoin-fil-logo.svg?v=023" height="22" width="22"/></h2>
 
+- <h2>IPFS(To Store Audio) <img src="https://imgs.search.brave.com/_56fvzrv5nSl8_oPJgQKOxAPLfwW_KKxYAmOUJts_I4/rs:fit:1200:512:1/g:ce/aHR0cHM6Ly9taXJv/Lm1lZGl1bS5jb20v/bWF4LzI1NjAvMSpv/NVEzNTAzcGxRUDEy/RnRWU24wblhRLnBu/Zw" height="22" width="60"/></h2>
 
 <h2>💖Like my work?</h2>
 
