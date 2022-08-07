@@ -1,6 +1,9 @@
-<h1 align="center" id="title">MetaMusic</h1>
+<h1 align="center" id="title">
+  
+![Landing Page](https://ipfs.filebase.io/ipfs/QmT9cjxzQxkh9u9MT6YVoTdC2dQBhTnup3SmbPKMGF6krg)
+  MetaMusic</h1>
 
-<p id="description">MetaMusic is a decentralised platform where artist and singers can showcase their work as NFT and they can earn rewards for their work.</p>
+<h2  align="center" id="description">MetaMusic is a decentralised platform where artist and singers can showcase their work as NFT and they can earn rewards for their work.</h2>
 
   
   
@@ -45,7 +48,23 @@ npm run start
   
 <h2>💻 Built with</h2>
 
-Technologies used in the project:
+
+**Front-End:** 
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=black)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Ethers JS](https://img.shields.io/badge/EthersJS-pink?style=for-the-badge&logo=javascript&logoColor=black)
+
+**Smart Contract:** ![Solidity](https://img.shields.io/badge/solidity-%2338B2AC.svg?style=for-the-badge&logo=solidity&logoColor=black)
+
+## Deployed to
+
+- <h2>Front-end : Netlify </h2>
+
+- <h2>Smart-Contract : <img src="https://cryptologos.cc/logos/polygon-matic-logo.svg?v=023" height="22" width="22"/> Polygon Testnet </h2
+
+
+
 
 <h2>💖Like my work?</h2>
 
@@ -56,7 +75,7 @@ Contact us at: sahkakwani@gmail.com sutharvivek18@gmail.com
 
 ## Screenshots
 
-![Landing Page](https://ipfs.filebase.io/ipfs/QmczB4KTCwrnB88nZmCQCWBqBg9kxUHkJoKkF6YEHYq5Ps)
+![Landing Page](https://ipfs.filebase.io/ipfs/QmVa4n4TUcA3XQRSnaA6kUSKfBL3hxHNP1nmbYGULwBe1J)
 ![Main Page](https://ipfs.filebase.io/ipfs/QmbpmZj7v6VLXwu8znSGrw7C1uNafiGL33GoRnkAapdQay)
 ![song Page](https://ipfs.filebase.io/ipfs/QmQFzFtHgfwnzAgaAGv219Y8bGUUQe3TxZagNbECFSwLFa)
 ![upload song](https://ipfs.filebase.io/ipfs/QmTZFM6pSoSzwM6EqSAYUGMXY73QiC6DiK7aBWbYMqoDuL)
