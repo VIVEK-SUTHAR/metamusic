@@ -1,7 +1,7 @@
 import MetaMask from "../Assets/metalogo.svg";
 
-export default function MusicCard({ image, name, singer }) {
-  const Imagerc = image.slice(28);
+export default function MusicCard({ item, image, name, singer }) {
+  console.log(item);
   return (
     <div className="bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 p-1 rounded-md">
       <div className="MusicCard min-w-max h-64 bg-[#181818] rounded-md p-4 overflow-hidden opacity-9 hover:transition-all hover:delay-75 gradientborder">
@@ -11,7 +11,7 @@ export default function MusicCard({ image, name, singer }) {
             aria-hidden="false"
             draggable="false"
             loading="lazy"
-            src={image ? `https://ipfs.io/ipfs/${Imagerc}` : ""}
+            src={image ? `https://w3s.link/ipfs/${item.bannerImage.slice(28)}` : ""}
             data-testid="card-image"
             alt=""
             class="mMx2LUixlnN_Fu45JpFB SKJSok3LfyedjZjujmFt"

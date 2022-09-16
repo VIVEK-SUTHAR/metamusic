@@ -23,7 +23,7 @@ export default function MusicPlayer({id}) {
   console.log(allSong)
   // const {id} = useParams();
   const [song, setSong] = useState(
-    "https://bafybeie54botbitl5iivjuypbuzsv3mczdy4s53mn4vfxdrbe7ppg42i5i.ipfs.infura-ipfs.io/"
+    "https://ipfs.filebase.io/ipfs/QmcZ4ecg9KkKS4sukAsFRWZ6Kiiq2hCLQ5azHek3B2dpjV"
   );
   // id?(num=id):num=song
   
@@ -43,7 +43,7 @@ export default function MusicPlayer({id}) {
         <div className="w-[calc(24rem+4rem)] h-14 flex">
           <div className="w-14 h-14">
             <img
-              src={allSong[id].bannerImage}
+              src={`https://w3s.link/ipfs/${allSong[id].bannerImage.slice(28)}`}
               alt=""
             /> 
           </div>
@@ -66,7 +66,7 @@ export default function MusicPlayer({id}) {
                   <audio
                     onTimeUpdate={changeValue}
                     autoPlay={true}
-                    src={allSong[id].musicLink}
+                    src={`https://w3s.link/ipfs/${allSong[id].musicLink.slice(28)}`}
                   ></audio>
                   <Play />
                 </button>

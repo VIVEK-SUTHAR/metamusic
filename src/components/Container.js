@@ -10,8 +10,6 @@ export default function Container() {
   const setAllsong= state.setAllsong;
   const [allSongs, setallSongs] = useState([]);
   const allsong = state.allsong;
-console.log(allsong);
-
   useEffect(() => {
     getAllSongs().then(res => {
       setallSongs(res);
@@ -26,7 +24,7 @@ console.log(allsong);
       <div className="w-screen flex flex-row flex-wrap justify-center gap-10 overflow-x-scroll Scroll ml-3 mb-24">
         {allsong.map((item, index) => (
           <Link to= {`/${index}`}>
-            <MusicCard image={item.bannerImage} name={item.songName} singer={item.singer}/>
+            <MusicCard item={item} image={item.bannerImage} name={item.songName} singer={item.singer}/>
           </Link>
         ))}
       </div>
